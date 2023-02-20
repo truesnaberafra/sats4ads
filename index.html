@@ -49,13 +49,14 @@
         if (event.data == YT.PlayerState.PLAYING && !done) {
           setTimeout(stopVideo, 6000);
           done = true;
-          const data = JSON.stringify(done);
-          window.Telegram.WebApp.sendData(data);
-          window.Telegram.WebApp.close();
         }
       }
       function stopVideo() {
         player.stopVideo();
+        done = true;
+        const data = JSON.stringify(done);
+        window.Telegram.WebApp.sendData(data);
+        window.Telegram.WebApp.close();
       }
     </script>
   </body>
