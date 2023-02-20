@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
+  <header
+          <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  </header>
   <body>
     <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
     <div id="player"></div>
@@ -43,6 +46,10 @@
         if (event.data == YT.PlayerState.PLAYING && !done) {
           setTimeout(stopVideo, 6000);
           done = true;
+          Telegram.WebApp.ready();
+          const data = JSON.stringify({done: True});
+          Telegram.WebApp.sendData(data);
+          Telegram.WebApp.close();
         }
       }
       function stopVideo() {
