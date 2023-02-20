@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
   <header
+          <meta charset="UTF-8">
           <script src="https://telegram.org/js/telegram-web-app.js"></script>
   </header>
   <body>
     <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
     <div id="player"></div>
 
-    <script>
-      //window.Telegram.WebApp.ready();
+    <script type="text/javascript">
+      Telegram.WebApp.ready();
+      Telegram.WebApp.MainButton.setText('Choose Color').show();
       // 2. This code loads the IFrame Player API code asynchronously.
       var tag = document.createElement('script');
 
