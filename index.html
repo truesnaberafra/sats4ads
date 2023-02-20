@@ -8,6 +8,7 @@
     <div id="player"></div>
 
     <script>
+      Telegram.WebApp.ready();
       // 2. This code loads the IFrame Player API code asynchronously.
       var tag = document.createElement('script');
 
@@ -46,7 +47,6 @@
         if (event.data == YT.PlayerState.PLAYING && !done) {
           setTimeout(stopVideo, 6000);
           done = true;
-          Telegram.WebApp.ready();
           const data = JSON.stringify({done: True});
           Telegram.WebApp.sendData(data);
           Telegram.WebApp.close();
